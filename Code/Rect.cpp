@@ -26,17 +26,54 @@ int Rect::getH()
 	return _h;
 }
 
-int Rect::getY()
+int Rect::getW()
 {
 	return _w;
 }
 
-Point Rect::getPosition()
+
+Point& Rect::getPosition()
 {
 	return _coord;
 }
 
-const Point Rect::getPosition() const
+const Point &Rect::getPosition() const
 {
 	return _coord;
+}
+
+void Rect::setWidth(int w)
+{
+	if (w > 0)
+	{
+		_w = w;
+	}
+	else
+	{
+		std::cout << "La longuer ne peut être negative" << std::endl;
+	}
+}
+
+void Rect::setHeight(int h)
+{
+	if (h > 0)
+	{
+		_h = h;
+	}
+	else
+	{
+		std::cout << "La hauteur ne peut être negative" << std::endl;
+	}
+}
+
+void Rect::setSize(int w, int h)
+{
+	setWidth(w);
+	setHeight(h);
+}
+
+void Rect::setRectangle(int x, int y, int w, int h)
+{
+	setSize(w, h);
+	getPosition().setPosition(x, y);
 }

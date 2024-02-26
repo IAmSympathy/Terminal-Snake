@@ -10,10 +10,7 @@ int main() {
 
 	Rect r1;
 
-	r1.getPosition().setX(5);
-	cout << r1.getPosition().getX();
+	r1.setRectangle(5, 6, 7, 8);
 	system("pause");
 
-	/*TEST*/
-	/*TEST*/
 }

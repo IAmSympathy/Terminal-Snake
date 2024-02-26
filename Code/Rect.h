@@ -1,5 +1,6 @@
 #pragma once
 #include "Point.h"
+#include <iostream>
 
 class Rect
 {
@@ -14,8 +15,13 @@ public:
 	~Rect();
 
 	int getH();
-	int getY();
-	Point getPosition();
-	const Point getPosition() const;
+	int getW();
+	Point& getPosition();
+	const Point &getPosition() const;
+
+	void setWidth(int w);
+	void setHeight(int h);
+	void setSize(int h, int w);
+	void setRectangle(int x, int y, int w,int h);
 };
 
