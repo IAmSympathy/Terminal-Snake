@@ -1,19 +1,16 @@
-#include "Point.h"
-#include "Rect.h"
 #include <iostream>
 #include <fstream>
 #include "mesFonctions.h"
+#include "Point.h"
+#include "Rect.h"
+#include "Game.h"
+
 
 using namespace std;
 
 int main() {
+	
+	Game Menu;
+	Menu.StartMenu();
 
-	Rect r1;
-
-	r1.getPosition().setX(5);
-	cout << r1.getPosition().getX();
-	system("pause");
-
-	/*TEST*/
-	/*TEST*/
 }
