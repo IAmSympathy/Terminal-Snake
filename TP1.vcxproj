@@ -29,6 +29,9 @@
     <ClCompile Include="Code\Point.cpp" />
     <ClCompile Include="Code\Rect.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\..\Downloads\image1.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

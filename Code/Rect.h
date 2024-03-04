@@ -1,6 +1,8 @@
 #pragma once
 #include "Point.h"
 #include <iostream>
+#include <fstream>
+#include "mesFonctions.h"
 
 class Rect
 {
@@ -23,5 +25,9 @@ public:
 	void setHeight(int h);
 	void setSize(int h, int w);
 	void setRectangle(int x, int y, int w,int h);
+
+	void read(std::istream&);
+	void print(std::ostream&) const;
+	void draw(std::ostream&) const;
 };
 

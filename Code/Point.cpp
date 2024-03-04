@@ -86,4 +86,14 @@ void Point::print(std::ostream &sortie) const
 	sortie << "(" << _x << ", " << _y << ") " << _color;
 }
 
+void Point::read(std::istream& input)
+{
+	{
+		int x = 0, y = 0, color = 0;
+		char skip;
+		input >> skip >> x >> skip >> y >> skip >> color;
+		setPoint(x, y, color);
+	}
+}
+
 

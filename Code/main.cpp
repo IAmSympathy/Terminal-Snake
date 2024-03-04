@@ -8,9 +8,18 @@ using namespace std;
 
 int main() {
 
+	string input = "";
 	Rect r1;
+	std::cout << "Saisir coordonnees du rectangle, couleur, largeur, hauteur : (x,y) color w X h : ";
+	r1.read(cin);
+	cout << endl;
+	r1.print(cout);
 
-	r1.setRectangle(5, 6, 7, 8);
+	r1.draw(cout);
+
+
+
+
 	system("pause");
 
 }
