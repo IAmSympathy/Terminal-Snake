@@ -21,13 +21,17 @@
   <ItemGroup>
     <ClInclude Include="Code\mesFonctions.h" />
     <ClInclude Include="Code\Point.h" />
+    <ClInclude Include="Code\Apple.h" />
     <ClInclude Include="Code\Rect.h" />
+    <ClInclude Include="Code\Snake.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\main.cpp" />
     <ClCompile Include="Code\mesFonctions.cpp" />
     <ClCompile Include="Code\Point.cpp" />
+    <ClCompile Include="Code\Apple.cpp" />
     <ClCompile Include="Code\Rect.cpp" />
+    <ClCompile Include="Code\Snake.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\..\..\Downloads\image1.txt" />
