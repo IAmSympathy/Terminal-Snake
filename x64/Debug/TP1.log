@@ -1,2 +1,33 @@
 ﻿  Game.cpp
-  TP1.vcxproj -> C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\x64\Debug\TP1.exe
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(10,8): error C3646: 'randPosition' : spécificateur de substitution inconnu
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(10,20): error C2059: erreur de syntaxe : '('
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(10,27): error C2238: jetons inattendus avant ';'
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(18,26): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(18,26): error C2143: erreur de syntaxe : absence de ',' avant '&'
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(31,12): error C3646: '_dir' : spécificateur de substitution inconnu
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(31,16): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(39,8): error C3646: '_snake' : spécificateur de substitution inconnu
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(39,14): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(40,8): error C3646: '_apple' : spécificateur de substitution inconnu
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(40,14): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(41,12): error C3646: '_plateau' : spécificateur de substitution inconnu
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(41,20): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(7,12): error C2039: 'StartMenu' n'est pas membre de 'Game'
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(3,7): message : voir la déclaration de 'Game'
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(270,4): error C2065: '_dir' : identificateur non déclaré
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(276,5): error C2065: '_dir' : identificateur non déclaré
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(279,5): error C2065: '_dir' : identificateur non déclaré
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(282,5): error C2065: '_dir' : identificateur non déclaré
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(285,5): error C2065: '_dir' : identificateur non déclaré
+  main.cpp
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(31,12): error C3646: '_dir' : spécificateur de substitution inconnu
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(31,16): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(39,8): error C3646: '_snake' : spécificateur de substitution inconnu
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(39,14): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(40,8): error C3646: '_apple' : spécificateur de substitution inconnu
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(40,14): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(41,12): error C3646: '_plateau' : spécificateur de substitution inconnu
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(41,20): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\main.cpp(14,7): error C2039: 'StartMenu' n'est pas membre de 'Game'
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(3,7): message : voir la déclaration de 'Game'
+  Génération de code en cours...
