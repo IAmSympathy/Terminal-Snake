@@ -32,4 +32,5 @@ public:
 
 	void draw(std::ostream& os) const;
 	void print(std::ostream& sortie) const;
+	void read(std::istream& input);
 };

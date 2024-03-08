@@ -21,8 +21,17 @@ void ouvrirFichier(std::ifstream& monFlux, const std::string& nomFichier)
 int lireFichier(std::ifstream& monFlux, Point tabPoints[])
 {
 	int nbLigne = 0;
+	int i = 0;
 	while (!(monFlux.eof()))
 	{
+	tabPoints[i].read(monFlux);
+	i++;
+	}
+	monFlux.clear();
+	monFlux.seekg(0);
+	while (!(monFlux.eof()))
+	{
+		i++;
 		std::string ligne;
 		getline(monFlux, ligne);
 		if (!(ligne == ""))
@@ -31,21 +40,9 @@ int lireFichier(std::ifstream& monFlux, Point tabPoints[])
 		}
 
 	}
+
 	monFlux.close();
 	return nbLigne;
-}
-
-void read(std::istream& input, Point tabPoints[])
-{
-	int i = 0, x = 0, y = 0, color = 0;
-	char skip;
-	while (!(input.eof()))
-	{
-		input >> skip >> x >> skip  >> y >> skip >> color;
-		tabPoints[i].setPoint(x, y, color);
-		i++;
-
-	}
 }
 
 void afficherForme(const Point tabPoints[], int longueur, std::ostream& monFlux)
