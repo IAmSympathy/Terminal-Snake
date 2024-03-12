@@ -86,7 +86,6 @@ void Game::parametersMenu(int& color, int& dimension, int& hauteur, int& largeur
 		cout << endl << "Votre choix : ";
 		cin >> reponse;
 
-
 		void viderBuffer();
 		{
 			cin.clear();
@@ -282,17 +281,17 @@ void Game::play()
 
 void Game::inputKey() {
 	int touche;
-	if (_kbhit()) {			//si une touche est enfoncée
+	if (_kbhit()) {			//si une touche est enfoncï¿½e
 		touche = _getch();		//saisit la touche
 
-		if (touche == 'q') {		//si la touche est q, on veut arrêter le jeu
+		if (touche == 'q') {		//si la touche est q, on veut arrï¿½ter le jeu
 			_gameOver = true;
 			_dir = STOP;
 		}
-		else if (touche == 224) {	//si la touche est 224, c’est une flèche
+		else if (touche == 224) {	//si la touche est 224, cï¿½est une flï¿½che
 			touche = _getch();	//dans le buffer on prend la 2e partie de la touche
 			switch (touche) {
-			case 75:		//code ascii des flèches
+			case 75:		//code ascii des flï¿½ches
 				_dir = LEFT;
 				break;
 			case 72:

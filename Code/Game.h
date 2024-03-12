@@ -19,29 +19,29 @@ private:
 	enum direction { STOP, LEFT, RIGHT, UP, DOWN, NONE };
 
 public:
-	Game();											//initialise les types primitifs à 0
-	~Game();										//initialise les types primitifs à 0
+	Game();											//initialise les types primitifs ï¿½ 0
+	~Game();										//initialise les types primitifs ï¿½ 0
 	void initialize();								//initalise le jeu
 
-	Point randPosition()const;						//génère une nouvelle position aléatoire dans le terrain
-	void createApple();								//génère une nouvelle pomme TQ position est dans le snake
+	Point randPosition()const;						//gï¿½nï¿½re une nouvelle position alï¿½atoire dans le terrain
+	void createApple();								//gï¿½nï¿½re une nouvelle pomme TQ position est dans le snake
 
-	void StartMenu();								//Affiche le menu de départ du jeu
+	void StartMenu();								//Affiche le menu de dï¿½part du jeu
 	void parametersMenu(int& color, int& dimension, int& hauteur, int& largeur, int& speed);
-													//Affiche le menu des paramètres du jeu
+													//Affiche le menu des paramï¿½tres du jeu
 	void play();									//la main loop du jeu
-	void inputKey();								//la saisie des touches pour le déplacement du snake
-	bool canMove(const Point& p) const;				//retourne vrai si la tête du snake peut bouger dans le jeu
-	int getScore(int score) const;					//retourne le score (seule info qui pourrait être intéressante 
-													//de l’extérieur) et aucun setteur pour cet objet.
-	void drawScreen();								//Affiche le terrain où le snake se promène
+	void inputKey();								//la saisie des touches pour le dï¿½placement du snake
+	bool canMove(const Point& p) const;				//retourne vrai si la tï¿½te du snake peut bouger dans le jeu
+	int getScore(int score) const;					//retourne le score (seule info qui pourrait ï¿½tre intï¿½ressante 
+													//de lï¿½extï¿½rieur) et aucun setteur pour cet objet.
+	void drawScreen();								//Affiche le terrain oï¿½ le snake se promï¿½ne
 
-	void printScore(std::ostream& sortie) const;	//affiche le nombre de pommes mangées
+	void printScore(std::ostream& sortie) const;	//affiche le nombre de pommes mangï¿½es
 	void printLive(std::ostream& sortie) const;		//affiche le compteur de vie
-	void printEndGame(std::ostream& sortie) const;	//affiche game over et le nombre de pommes mangées
-													//permet de charger les données provenant du fichier texte
+	void printEndGame(std::ostream& sortie) const;	//affiche game over et le nombre de pommes mangï¿½es
+													//permet de charger les donnï¿½es provenant du fichier texte
 	void loadParameters(int& color, int& dimension, int& hauteur, int& largeur, int& speed);
-													//permet de sauvegarder les données de paramètre dans le fichier texte
+													//permet de sauvegarder les donnï¿½es de paramï¿½tre dans le fichier texte
 	void saveParameters(int color, int dimension, int hauteur, int largeur, int speed) const;
 
 	direction _dir;

@@ -91,34 +91,30 @@ bool Snake::ifCollision(const Point& pos) const
 
 void Snake::move(int dir)
 {
-	switch (dir)
+	Point oldPos = _snake[0];
+	switch (dir)						 //Change le point de la tête du snake
 	{
+
 	case 1:
-		for (int i = 0; i < _size; i++)
-		{
-			_snake[i].setX((_snake[0].getX() - 1));
-		}
+		_snake[0].setX((_snake[0].getX() - 1)); 
 	case 2:
-		for (int i = 0; i < _size; i++)
-		{
-			_snake[i].setX((_snake[0].getX() + 1));;
-		}
+		_snake[0].setX((_snake[0].getX() + 1));;
 	case 3:
-		for (int i = 0; i < _size; i++)
-		{
-			_snake[i].setY((_snake[0].getY() + 1));
-		}
+		_snake[0].setY((_snake[0].getY() + 1));
 	case 4:
-		for (int i = 0; i < _size; i++)
-		{
-			_snake[i].setY((_snake[0].getY() - 1));
-		}
+		_snake[0].setY((_snake[0].getY() - 1));
+	}
+	for (int j = 1; j < _size; j++)
+	{
+		_snake[j].setX(oldPos.getX());      //change les points du corps
+		_snake[j].setY(oldPos.getY());
+		oldPos = _snake[j];
 	}
 }
 
-void Snake::eat(int dir)
+void Snake::eat()
 {
-
+	_size++;
 }
 
 void Snake::draw(std::ostream& sortie)
