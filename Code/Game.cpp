@@ -377,10 +377,23 @@ void Game::saveParameters(int color, int dimension, int hauteur, int largeur, in
 
 Game::Game()
 {
+	_gameOver = false;
+	_direction = 0;
+	_cptLive = 0;
+	_score = 0;
+	_width = 0;
+	_height = 0;
+
 }
 
 Game::~Game()
 {
+	_gameOver = false;
+	_direction = 0;
+	_cptLive = 0;
+	_score = 0;
+	_width = 0;
+	_height = 0;
 }
 
 void Game::initialize()

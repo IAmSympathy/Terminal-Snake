@@ -12,8 +12,8 @@ private:
 	Snake _snake;		//le snake
 	Apple _apple;		//la pomme
 	Rect _plateau;		//rectangle du terrain de jeu
-	int _width = 40;	//Largeur - dimension du terrain de jeu
-	int _height = 20;	//Hauteur - dimension du terrain de jeu
+	int _width;			//Largeur - dimension du terrain de jeu
+	int _height;		//Hauteur - dimension du terrain de jeu
 
 
 	enum direction { STOP, LEFT, RIGHT, UP, DOWN, NONE };
