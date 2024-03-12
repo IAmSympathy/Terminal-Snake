@@ -112,9 +112,9 @@ void Snake::move(int dir)
 	}
 }
 
-void Snake::eat(Point applePos)
+void Snake::eat()
 {
-	if (apple )
+	_size++;
 }
 
 void Snake::draw(std::ostream& sortie)
