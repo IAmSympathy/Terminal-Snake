@@ -1,21 +1,20 @@
 #include <iostream>
 #include <fstream>
 #include <conio.h>
+#include <string>
 #include "Game.h"
+#include "Snake.h"
+#include "Apple.h"
+#include "Rect.h"
+
 using namespace std;
 
 void Game::StartMenu() {
 	int reponse = 0;
 	bool switch1 = true;
-	bool switch2 = true;
-	bool verification1 = true;
-	bool verification2 = true;
-	bool verification3 = true;
-	bool verification4 = true;
-	bool verification5 = true;
 	int couleur = 1;
 	int dimensionSnake = 6;
-	int dimensionPlateauH = 10;
+	int dimensionPlateauH = 25;
 	int dimensionPlateauL = 40;
 	int vitesseSnake = 100;
 	
@@ -47,203 +46,7 @@ void Game::StartMenu() {
 			/*COMMENCER LE JEU*/
 			break;
 		case 2:
-			do
-			{
-				system("CLS");
-				cout << endl << "Voici les parametres qui peuvent etre modifie dans le jeu Snake" << endl << endl;
-				cout << "1- Couleur du snake" << endl;
-				cout << "2- Dimensions du snake" << endl;
-				cout << "3- Dimensions du plateau" << endl;
-				cout << "4- Vitesse du snake" << endl;
-				cout << "5- Revenir au menu precedent" << endl;
-				cout << endl << "Votre choix : ";
-				cin >> reponse;
-
-				void viderBuffer();
-				{
-					cin.clear();
-					cin.seekg(0, ios::end);
-					if (!cin.fail()) {
-						cin.ignore(1000);
-					}
-					else {
-						cin.clear();
-					}
-				}
-
-				switch (reponse)
-				{
-				case 1:
-					do
-					{
-						system("CLS");
-						cout << "Entrez la couleur du snake! Vous devez faire un choix entre 1 a 15! ";
-						cin >> couleur;
-
-						void viderBuffer();
-						{
-							cin.clear();
-							cin.seekg(0, ios::end);
-							if (!cin.fail()) {
-								cin.ignore(1000);
-							}
-							else {
-								cin.clear();
-							}
-						}
-
-						if (couleur <= 15 && couleur >= 1)
-						{
-							verification1 = false;
-						}
-						else
-						{
-							cout << "Entrez un nombre entre 1 et 15!";
-							cin.ignore();
-							cin.get();
-							verification1 = true;
-						}
-					} while (verification1 == true);
-					break;
-				case 2:
-					do
-					{
-						system("CLS");
-						cout << "Entrez la dimension du snake que vous desirez! Vous devez faire un choix entre 6 a 20! ";
-						cin >> dimensionSnake;
-
-						void viderBuffer();
-						{
-							cin.clear();
-							cin.seekg(0, ios::end);
-							if (!cin.fail()) {
-								cin.ignore(1000);
-							}
-							else {
-								cin.clear();
-							}
-						}
-
-						if (dimensionSnake <= 20 && dimensionSnake >= 6)
-						{
-							verification2 = false;
-						}
-						else
-						{
-							cout << "Entrez un nombre entre 6 et 20!";
-							cin.ignore();
-							cin.get();
-							verification2 = true;
-						}
-					} while (verification2 == true);
-					break;
-				case 3:
-					do
-					{
-						do
-						{
-							system("CLS");
-							cout << "Entrez la dimension du plateau de jeu que vous desirez!" << endl;
-							cout << "Entrez la hauteur. Celle-ci dois se trouver entre 10 et 25! ";
-							cin >> dimensionPlateauH;
-
-							void viderBuffer();
-							{
-								cin.clear();
-								cin.seekg(0, ios::end);
-								if (!cin.fail()) {
-									cin.ignore(1000);
-								}
-								else {
-									cin.clear();
-								}
-							}
-
-							if (dimensionPlateauH <= 25 && dimensionPlateauH >= 10)
-							{
-								verification3 = false;
-							}
-							else
-							{
-								cout << "Entrez un nombre entre 10 et 25!";
-								cin.ignore();
-								cin.get();
-								verification3 = true;
-							}
-						} while (verification3 == true);
-							cout << "Entrez la largeur. Celle-ci dois se trouver entre 40 et 60! ";
-							cin >> dimensionPlateauL;
-
-							void viderBuffer();
-							{
-								cin.clear();
-								cin.seekg(0, ios::end);
-								if (!cin.fail()) {
-									cin.ignore(1000);
-								}
-								else {
-									cin.clear();
-								}
-							}
-
-							if (dimensionPlateauL <= 60 && dimensionPlateauL >= 40)
-							{
-								verification4 = false;
-							}
-							else
-							{
-								cout << "Entrez un nombre entre 40 et 60!";
-								cin.ignore();
-								cin.get();
-								verification4 = true;
-							}
-					} while (verification4 == true);
-					break;
-				case 4:
-					do
-					{
-						system("CLS");
-						cout << "Entrez la vitesse du snake que vous desirez! Vous devez faire un choix entre 50 a 125! La vitesse par defaut est de 100, si vous reduisez le nombre, le snake ira plus vite!" << endl;
-						cout << "Entrer la vitesse. Celle-ci dois se trouver entre 50 et 125. ";
-						cin >> vitesseSnake;
-
-						void viderBuffer();
-						{
-							cin.clear();
-							cin.seekg(0, ios::end);
-							if (!cin.fail()) {
-								cin.ignore(1000);
-							}
-							else {
-								cin.clear();
-							}
-						}
-
-						if (vitesseSnake <= 125 && vitesseSnake >= 50)
-						{
-							verification5 = false;
-						}
-						else
-						{
-							cout << "Entrez un nombre entre 50 et 125!";
-							cin.ignore();
-							cin.get();
-							verification5 = true;
-						}
-					} while (verification5 == true);
-					break;
-				case 5:
-					switch2 = false;
-					break;
-				default:
-					cout << "Choisissez une option entre 1 et 5!";
-					switch2 = true;
-					cin.ignore();
-					cin.get();
-					system("CLS");
-					break;
-				}
-			} while (switch2 == true);
+			parametersMenu;
 			break;
 		case 3:
 			exit(0);
@@ -262,20 +65,219 @@ void Game::StartMenu() {
 
 void Game::parametersMenu(int& color, int& dimension, int& hauteur, int& largeur, int& speed)
 {
+	bool verification1 = true;
+	bool verification2 = true;
+	bool verification3 = true;
+	bool verification4 = true;
+	bool verification5 = true;
+	int reponse = 0;
+	bool switch2 = true;
+
+	do
+	{
+		system("CLS");
+		loadParameters;
+		cout << endl << "Voici les parametres qui peuvent etre modifie dans le jeu Snake" << endl << endl;
+		cout << "1- Couleur du snake" << endl;
+		cout << "2- Dimensions du snake" << endl;
+		cout << "3- Dimensions du plateau" << endl;
+		cout << "4- Vitesse du snake" << endl;
+		cout << "5- Revenir au menu precedent" << endl;
+		cout << endl << "Votre choix : ";
+		cin >> reponse;
+
+
+		void viderBuffer();
+		{
+			cin.clear();
+			cin.seekg(0, ios::end);
+			if (!cin.fail()) {
+				cin.ignore(1000);
+			}
+			else {
+				cin.clear();
+			}
+		}
+
+		switch (reponse)
+		{
+		case 1:
+			do
+			{
+				system("CLS");
+				cout << "Entrez la couleur du snake! Vous devez faire un choix entre 1 a 15! ";
+				cin >> color;
+
+				void viderBuffer();
+				{
+					cin.clear();
+					cin.seekg(0, ios::end);
+					if (!cin.fail()) {
+						cin.ignore(1000);
+					}
+					else {
+						cin.clear();
+					}
+				}
+
+				if (color <= 15 && color >= 1)
+				{
+					verification1 = false;
+				}
+				else
+				{
+					cout << "Entrez un nombre entre 1 et 15!";
+					cin.ignore();
+					cin.get();
+					verification1 = true;
+				}
+			} while (verification1 == true);
+			break;
+		case 2:
+			do
+			{
+				system("CLS");
+				cout << "Entrez la dimension du snake que vous desirez! Vous devez faire un choix entre 6 a 20! ";
+				cin >> dimension;
+
+				void viderBuffer();
+				{
+					cin.clear();
+					cin.seekg(0, ios::end);
+					if (!cin.fail()) {
+						cin.ignore(1000);
+					}
+					else {
+						cin.clear();
+					}
+				}
+
+				if (dimension <= 20 && dimension >= 6)
+				{
+					verification2 = false;
+				}
+				else
+				{
+					cout << "Entrez un nombre entre 6 et 20!";
+					cin.ignore();
+					cin.get();
+					verification2 = true;
+				}
+			} while (verification2 == true);
+			break;
+		case 3:
+			do
+			{
+				do
+				{
+					system("CLS");
+					cout << "Entrez la dimension du plateau de jeu que vous desirez!" << endl;
+					cout << "Entrez la hauteur. Celle-ci dois se trouver entre 10 et 25! ";
+					cin >> hauteur;
+
+					void viderBuffer();
+					{
+						cin.clear();
+						cin.seekg(0, ios::end);
+						if (!cin.fail()) {
+							cin.ignore(1000);
+						}
+						else {
+							cin.clear();
+						}
+					}
+
+					if (hauteur <= 25 && hauteur >= 10)
+					{
+						verification3 = false;
+					}
+					else
+					{
+						cout << "Entrez un nombre entre 10 et 25!";
+						cin.ignore();
+						cin.get();
+						verification3 = true;
+					}
+				} while (verification3 == true);
+				cout << "Entrez la largeur. Celle-ci dois se trouver entre 40 et 60! ";
+				cin >> largeur;
+
+				void viderBuffer();
+				{
+					cin.clear();
+					cin.seekg(0, ios::end);
+					if (!cin.fail()) {
+						cin.ignore(1000);
+					}
+					else {
+						cin.clear();
+					}
+				}
+
+				if (largeur <= 60 && largeur >= 40)
+				{
+					verification4 = false;
+				}
+				else
+				{
+					cout << "Entrez un nombre entre 40 et 60!";
+					cin.ignore();
+					cin.get();
+					verification4 = true;
+				}
+			} while (verification4 == true);
+			break;
+		case 4:
+			do
+			{
+				system("CLS");
+				cout << "Entrez la vitesse du snake que vous desirez! Vous devez faire un choix entre 50 a 125! La vitesse par defaut est de 100, si vous reduisez le nombre, le snake ira plus vite!" << endl;
+				cout << "Entrer la vitesse. Celle-ci dois se trouver entre 50 et 125. ";
+				cin >> speed;
+
+				void viderBuffer();
+				{
+					cin.clear();
+					cin.seekg(0, ios::end);
+					if (!cin.fail()) {
+						cin.ignore(1000);
+					}
+					else {
+						cin.clear();
+					}
+				}
+
+				if (speed <= 125 && speed >= 50)
+				{
+					verification5 = false;
+				}
+				else
+				{
+					cout << "Entrez un nombre entre 50 et 125!";
+					cin.ignore();
+					cin.get();
+					verification5 = true;
+				}
+			} while (verification5 == true);
+			break;
+		case 5:
+			saveParameters;
+			switch2 = false;
+			break;
+		default:
+			cout << "Choisissez une option entre 1 et 5!";
+			switch2 = true;
+			cin.ignore();
+			cin.get();
+			system("CLS");
+			break;
+		}
+	Game::parametersMenu;
+	} while (switch2 == true);
 }
 
 void Game::play()
 {
-	do
-	{
-		StartMenu;
-		_score;
-		_cptLive;
-		if (_dir != STOP)
-		{
-
-		}
-	} while (!_gameOver);
 }
 
 void Game::inputKey() {
@@ -308,20 +310,22 @@ void Game::inputKey() {
 
 bool Game::canMove(const Point& p) const
 {
-	return false;
 }
 
-int Game::getScore() const
+int Game::getScore(int score) const
 {
-	return 0;
+	score = _score;
+	return score;
 }
 
 void Game::drawScreen()
 {
+	Rect::draw;
 }
 
 void Game::printScore(std::ostream& sortie) const
 {
+
 }
 
 void Game::printLive(std::ostream& sortie) const
@@ -330,6 +334,45 @@ void Game::printLive(std::ostream& sortie) const
 
 void Game::printEndGame(std::ostream& sortie) const
 {
+}
+
+void Game::loadParameters(int& color, int& dimension, int& hauteur, int& largeur, int& speed)
+{
+	ifstream load;
+	load.open("save.txt");
+	if (!load)
+	{
+		cout << "ERREUR : Impossible d'ouvrir le fichier" << endl;
+	}
+	else
+	{
+		load >> color;
+		load >> dimension;
+		load >> hauteur;
+		load >> largeur;
+		load >> speed;
+	}
+}
+
+void Game::saveParameters(int color, int dimension, int hauteur, int largeur, int speed) const
+{
+	ofstream save;
+	save.open("setting.txt");
+	if (!save)
+	{
+		cout << "ERREUR : Impossible d'ouvrir le fichier" << endl;
+	}
+	else
+	{
+		save << color << endl;
+		save << dimension << endl;
+		save << hauteur << endl;
+		save << largeur << endl;
+		save << speed;
+
+		cout << "Sauvegarde terminer" << endl;
+	}
+	save.close();
 }
 
 Game::Game()

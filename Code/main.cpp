@@ -3,6 +3,8 @@
 #include "mesFonctions.h"
 #include "Point.h"
 #include "Rect.h"
+#include "Apple.h"
+#include "Snake.h"
 #include "Game.h"
 
 

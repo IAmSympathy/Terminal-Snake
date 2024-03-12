@@ -11,7 +11,7 @@ private:
 
 	Snake _snake;		//le snake
 	Apple _apple;		//la pomme
-	Rectangle _plateau;	//rectangle du terrain de jeu
+	Rect _plateau;		//rectangle du terrain de jeu
 	int _width = 40;	//Largeur - dimension du terrain de jeu
 	int _height = 20;	//Hauteur - dimension du terrain de jeu
 
@@ -28,11 +28,11 @@ public:
 
 	void StartMenu();								//Affiche le menu de départ du jeu
 	void parametersMenu(int& color, int& dimension, int& hauteur, int& largeur, int& speed);
-	//Affiche le menu des paramètres du jeu
+													//Affiche le menu des paramètres du jeu
 	void play();									//la main loop du jeu
 	void inputKey();								//la saisie des touches pour le déplacement du snake
 	bool canMove(const Point& p) const;				//retourne vrai si la tête du snake peut bouger dans le jeu
-	int getScore() const;							//retourne le score (seule info qui pourrait être intéressante 
+	int getScore(int score) const;					//retourne le score (seule info qui pourrait être intéressante 
 													//de l’extérieur) et aucun setteur pour cet objet.
 	void drawScreen();								//Affiche le terrain où le snake se promène
 

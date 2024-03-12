@@ -26,7 +26,7 @@ public:
 	Point newPosition(int dir) const;	        //retourne la nouvelle position selon la direction
 
 	bool ifCollision(const Point& pos) const;	//retourne vrai si la position reçue est en
-	//collision avec une des positions du snake
+												//collision avec une des positions du snake
 	void move(int dir);							//avance le snake dans la bonne direction
 	void eat(int dir);							//avance et mange une pomme dans la direction
 
