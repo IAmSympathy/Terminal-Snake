@@ -4,6 +4,8 @@
 #include <fstream>
 #include "mesFonctions.h"
 
+using namespace std;
+
 class Rect
 {
 private:

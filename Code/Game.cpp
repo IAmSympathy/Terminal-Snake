@@ -334,6 +334,24 @@ void Game::printEndGame(std::ostream& sortie) const
 
 void Game::loadParameters(int& color, int& dimension, int& hauteur, int& largeur, int& speed)
 {
+<<<<<<< Updated upstream
+=======
+	ifstream load;
+	load.open("setting.txt");
+	if (!load)
+	{
+		cout << "ERREUR : Impossible d'ouvrir le fichier" << endl;
+	}
+	else
+	{
+		load >> color;
+		load >> dimension;
+		load >> hauteur;
+		load >> largeur;
+		load >> speed;
+	}
+	load.close();
+>>>>>>> Stashed changes
 }
 
 void Game::saveParameters(int color, int dimension, int hauteur, int largeur, int speed) const
