@@ -1,26 +1,20 @@
 #include "Point.h"
 #include "Rect.h"
 #include "Apple.h"
-#include <iostream>
-#include <fstream>
 #include "mesFonctions.h"
-<<<<<<< Updated upstream
-=======
-#include "Point.h"
-#include "Rect.h"
-#include "Apple.h"
 #include "Snake.h"
 #include "Game.h"
 
->>>>>>> Stashed changes
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
 int main() {
 
+	Game jeux;
 
-
-
+	jeux.initialize();
 
 	system("pause");
 

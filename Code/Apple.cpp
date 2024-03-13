@@ -24,3 +24,13 @@ void Apple::draw(std::ostream& sortie) const
 	//Afficher le point avec la couleur spécifiée
 	std::cout << "\xFE";
 }
+
+int Apple::getx()
+{
+	return _apple.getX();
+}
+
+int Apple::gety()
+{
+	return _apple.getY();
+}

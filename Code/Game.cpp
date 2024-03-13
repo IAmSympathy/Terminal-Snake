@@ -49,6 +49,7 @@ void Game::StartMenu() {
 			parametersMenu;
 			break;
 		case 3:
+			play;
 			exit(0);
 			switch1 = false;
 			break;
@@ -277,6 +278,47 @@ void Game::parametersMenu(int& color, int& dimension, int& hauteur, int& largeur
 
 void Game::play()
 {
+	do
+	{
+		drawScreen;
+		printScore;
+		printLive;
+		inputKey;
+		if (_dir != STOP)
+		{
+			Point variable = _snake.newPosition(_dir);
+			if (_snake.ifCollision(variable))
+			{
+				_cptLive--;
+				printLive;
+				if (_cptLive == 0)
+				{
+					_gameOver = true;
+				}
+				else
+				{
+					drawScreen;
+					randPosition;
+				}
+			}
+			else if (variable.getX() == _apple.getx() && variable.getY() == _apple.gety())
+			{
+				_snake.eat();
+				printScore;
+				randPosition;
+			}
+			else
+			{
+				_snake.move(_dir);
+			}
+
+			_snake.draw(std::cout);
+			Sleep(100);
+		}
+	} while (_gameOver != true);
+
+	printEndGame;
+	StartMenu;
 }
 
 void Game::inputKey() {
@@ -307,10 +349,6 @@ void Game::inputKey() {
 	}
 }
 
-bool Game::canMove(const Point& p) const
-{
-}
-
 int Game::getScore(int score) const
 {
 	score = _score;
@@ -319,20 +357,23 @@ int Game::getScore(int score) const
 
 void Game::drawScreen()
 {
-	Rect::draw;
+	_plateau.draw(cout);
 }
 
 void Game::printScore(std::ostream& sortie) const
 {
-
+	cout << "Nombre de pomme ramassees : " << _score << endl;
 }
 
 void Game::printLive(std::ostream& sortie) const
 {
+	cout << "Vos vies restantes : " << _cptLive << endl;
 }
 
 void Game::printEndGame(std::ostream& sortie) const
 {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+	cout << "Vous avez perdu BOZO";
 }
 
 void Game::loadParameters(int& color, int& dimension, int& hauteur, int& largeur, int& speed)
@@ -377,18 +418,18 @@ void Game::saveParameters(int color, int dimension, int hauteur, int largeur, in
 Game::Game()
 {
 	_gameOver = false;
-	_direction = 0;
-	_cptLive = 0;
+	_dir = 1;
+	_cptLive = 3;
 	_score = 0;
-	_width = 0;
-	_height = 0;
+	_width = 40;
+	_height = 20;
 
 }
 
 Game::~Game()
 {
 	_gameOver = false;
-	_direction = 0;
+	_dir = 0;
 	_cptLive = 0;
 	_score = 0;
 	_width = 0;
@@ -397,13 +438,14 @@ Game::~Game()
 
 void Game::initialize()
 {
+	StartMenu;
 }
 
-Point Game::randPosition() const
+void Game::randPosition()
 {
-	return Point();
-}
-
-void Game::createApple()
-{
+	int X;
+	int Y;
+	X = rand() % (_width-1) + 1;
+	Y = rand() % (_height-1) + 1;
+	_apple.setPosition(X, Y);
 }

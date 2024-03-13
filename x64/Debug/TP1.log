@@ -5,30 +5,31 @@ C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(13,8):
 C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(13,14): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
 C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(14,7): error C3646: '_plateau' : spécificateur de substitution inconnu
 C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(14,15): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(26,8): error C3646: 'randPosition' : spécificateur de substitution inconnu
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(26,20): error C2059: erreur de syntaxe : '('
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(26,27): error C2238: jetons inattendus avant ';'
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(34,26): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(34,26): error C2143: erreur de syntaxe : absence de ',' avant '&'
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(50,25): error C3867: 'Game::parametersMenu' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(261,3): error C2065: 'switch2' : identificateur non déclaré
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(265,3): error C2065: 'switch2' : identificateur non déclaré
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(305,12): error C2511: 'bool Game::canMove(const Point &) const' : impossible de trouver la fonction membre surchargée dans 'Game'
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(3,7): message : voir la déclaration de 'Game'
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(351,13): error C2039: 'randPosition' n'est pas membre de 'Game'
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.h(3,7): message : voir la déclaration de 'Game'
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(352,1): error C2270: 'randPosition' : modificateurs non autorisés sur les fonctions non membres
-  main.cpp
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(49,18): error C3867: 'Game::parametersMenu' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(52,8): error C3867: 'Game::play' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(80,17): error C3867: 'Game::loadParameters' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(264,18): error C3867: 'Game::saveParameters' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(275,22): error C3867: 'Game::parametersMenu' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(283,13): error C3867: 'Game::drawScreen' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(284,13): error C3867: 'Game::printScore' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(285,12): error C3867: 'Game::printLive' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(286,11): error C3867: 'Game::inputKey' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(289,21): error C2065: '_snake' : identificateur non déclaré
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(290,8): error C2065: '_snake' : identificateur non déclaré
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(293,14): error C3867: 'Game::printLive' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(300,16): error C3867: 'Game::drawScreen' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(301,18): error C3867: 'Game::randPosition' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(304,32): error C2065: '_apple' : identificateur non déclaré
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(304,68): error C2065: '_apple' : identificateur non déclaré
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(306,5): error C2065: '_snake' : identificateur non déclaré
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(307,15): error C3867: 'Game::printScore' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(308,17): error C3867: 'Game::randPosition' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(312,5): error C2065: '_snake' : identificateur non déclaré
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(315,4): error C2065: '_snake' : identificateur non déclaré
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(320,14): error C3867: 'Game::printEndGame' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(321,11): error C3867: 'Game::StartMenu' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(360,2): error C2065: '_plateau' : identificateur non déclaré
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(441,11): error C3867: 'Game::StartMenu' : syntaxe non-standard ; utilisez '&' pour créer un pointeur vers un membre
+C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Game.cpp(450,2): error C2065: '_apple' : identificateur non déclaré
   mesFonctions.cpp
-  Point.cpp
-  Apple.cpp
-  Rect.cpp
-  Snake.cpp
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Snake.cpp(77,1): warning C4060: l'instruction switch ne contient aucune étiquette 'case' ou 'default'
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Snake.cpp(69,2): warning C4102: 'case1' : étiquette non référencée
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Snake.cpp(71,2): warning C4102: 'case2' : étiquette non référencée
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Snake.cpp(73,2): warning C4102: 'case3' : étiquette non référencée
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Snake.cpp(75,2): warning C4102: 'case4' : étiquette non référencée
   Génération de code en cours...
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Snake.cpp(90): warning C4715: 'Snake::ifCollision' : les chemins de contrôle ne retournent pas tous une valeur
-C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\Code\Apple.cpp(15): warning C4172: retourne l'adresse d'une variable locale ou  temporaire
