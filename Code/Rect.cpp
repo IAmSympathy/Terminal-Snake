@@ -1,4 +1,7 @@
 #include "Rect.h"
+#include "Game.h"
+#include <iostream>
+#include <fstream>
 
 Rect::Rect()
 {
@@ -92,6 +95,31 @@ void Rect::print(std::ostream& output) const
 
 void Rect::draw(std::ostream&) const
 {
+	system("CLS");
+	int color = 0;
+	int dimension = 0;
+	int _h = 0;
+	int _w = 0;
+	int speed = 0;
+
+	ifstream load;
+	load.open("setting.txt");
+	if (!load)
+	{
+		cout << "ERREUR : Impossible d'ouvrir le fichier" << endl;
+	}
+	else
+	{
+		load >> color;
+		load >> dimension;
+		load >> _h;
+		load >> _w;
+		load >> speed;
+	}
+	load.close();
+
+
+
 	for (int j = 0; j < _h; j++)
 	{
 		for (int i = 0; i < _w; i++)
