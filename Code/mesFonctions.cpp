@@ -17,3 +17,15 @@ void afficherForme(const Point tabPoints[], int longueur, std::ostream& monFlux)
 		tabPoints[i].draw(std::cout);
 	}
 }
+
+void viderBuffer()
+{
+	std::cin.clear();
+	std::cin.seekg(0, std::ios::end);
+	if (!std::cin.fail()) {
+		std::cin.ignore(1000);
+	}
+	else {
+		std::cin.clear();
+	}
+}

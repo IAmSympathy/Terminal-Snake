@@ -123,9 +123,9 @@ void Snake::draw(std::ostream& sortie)
 	for (int i = 0; i < _size; i++)
 	{
 		goToXY(_snake[i].getX(), _snake[i].getY());
-	//Changer la couleur du texte en console à partir de la couleur du point
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), _snake[i].getColor());
-	//Afficher le point avec la couleur spécifiée
-	std::cout << "\xFE";
+		//Changer la couleur du texte en console à partir de la couleur du point
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), _snake[i].getColor());
+		//Afficher le point avec la couleur spécifiée
+		std::cout << "\xFE";
 	}
 }

@@ -1,7 +1,7 @@
 #pragma once
-#include "Point.h"
 #include <windows.h>
-#include "mesFonctions.cpp"
+#include "mesFonctions.h"
+#include "Point.h"
 
 class Snake {
 private:

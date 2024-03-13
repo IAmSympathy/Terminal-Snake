@@ -1,4 +1,11 @@
 #pragma once
+#include <iostream>
+#include <fstream>
+#include <conio.h>
+#include <string>
+#include "Snake.h"
+#include "Apple.h"
+#include "Rect.h"
 
 class Game
 {

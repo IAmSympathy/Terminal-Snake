@@ -1,11 +1,4 @@
-#include <iostream>
-#include <fstream>
-#include <conio.h>
-#include <string>
 #include "Game.h"
-#include "Snake.h"
-#include "Apple.h"
-#include "Rect.h"
 
 using namespace std;
 
@@ -28,28 +21,17 @@ void Game::StartMenu() {
 		cout << endl << "Votre choix : ";
 		cin >> reponse;
 
-		void viderBuffer();
-		{
-			cin.clear();
-			cin.seekg(0, ios::end);
-			if (!cin.fail()) {
-				cin.ignore(1000);
-			}
-			else {
-				cin.clear();
-			}
-		}
-
+		viderBuffer();
+		
 		switch (reponse)
 		{
 		case 1:
-			/*COMMENCER LE JEU*/
+			play();
 			break;
 		case 2:
-			parametersMenu;
+		parametersMenu(couleur,dimensionSnake, dimensionPlateauH, dimensionPlateauL, vitesseSnake);
 			break;
 		case 3:
-			play;
 			exit(0);
 			switch1 = false;
 			break;
@@ -77,7 +59,7 @@ void Game::parametersMenu(int& color, int& dimension, int& hauteur, int& largeur
 	do
 	{
 		system("CLS");
-		loadParameters;
+		loadParameters(color, dimension, hauteur, largeur, speed);
 		cout << endl << "Voici les parametres qui peuvent etre modifie dans le jeu Snake" << endl << endl;
 		cout << "1- Couleur du snake" << endl;
 		cout << "2- Dimensions du snake" << endl;
@@ -87,38 +69,15 @@ void Game::parametersMenu(int& color, int& dimension, int& hauteur, int& largeur
 		cout << endl << "Votre choix : ";
 		cin >> reponse;
 
-		void viderBuffer();
-		{
-			cin.clear();
-			cin.seekg(0, ios::end);
-			if (!cin.fail()) {
-				cin.ignore(1000);
-			}
-			else {
-				cin.clear();
-			}
-		}
-
-		switch (reponse)
-		{
+		viderBuffer();
+					
+		switch(reponse){
 		case 1:
 			do
 			{
 				system("CLS");
 				cout << "Entrez la couleur du snake! Vous devez faire un choix entre 1 a 15! ";
 				cin >> color;
-
-				void viderBuffer();
-				{
-					cin.clear();
-					cin.seekg(0, ios::end);
-					if (!cin.fail()) {
-						cin.ignore(1000);
-					}
-					else {
-						cin.clear();
-					}
-				}
 
 				if (color <= 15 && color >= 1)
 				{
@@ -202,17 +161,7 @@ void Game::parametersMenu(int& color, int& dimension, int& hauteur, int& largeur
 				cout << "Entrez la largeur. Celle-ci dois se trouver entre 40 et 60! ";
 				cin >> largeur;
 
-				void viderBuffer();
-				{
-					cin.clear();
-					cin.seekg(0, ios::end);
-					if (!cin.fail()) {
-						cin.ignore(1000);
-					}
-					else {
-						cin.clear();
-					}
-				}
+				
 
 				if (largeur <= 60 && largeur >= 40)
 				{
@@ -261,8 +210,9 @@ void Game::parametersMenu(int& color, int& dimension, int& hauteur, int& largeur
 			} while (verification5 == true);
 			break;
 		case 5:
-			saveParameters;
+			saveParameters(color, dimension, hauteur, largeur, speed);
 			switch2 = false;
+			StartMenu();
 			break;
 		default:
 			cout << "Choisissez une option entre 1 et 5!";
@@ -272,7 +222,7 @@ void Game::parametersMenu(int& color, int& dimension, int& hauteur, int& largeur
 			system("CLS");
 			break;
 		}
-	Game::parametersMenu;
+	Game::parametersMenu(color, dimension, hauteur, largeur, speed);
 	} while (switch2 == true);
 }
 
@@ -280,32 +230,32 @@ void Game::play()
 {
 	do
 	{
-		drawScreen;
-		printScore;
-		printLive;
-		inputKey;
+		drawScreen();
+		printScore(cout);
+		printLive(cout);
+		inputKey();
 		if (_dir != STOP)
 		{
 			Point variable = _snake.newPosition(_dir);
 			if (_snake.ifCollision(variable))
 			{
 				_cptLive--;
-				printLive;
+				printLive(cout);
 				if (_cptLive == 0)
 				{
 					_gameOver = true;
 				}
 				else
 				{
-					drawScreen;
-					randPosition;
+					drawScreen();
+					randPosition();
 				}
 			}
 			else if (variable.getX() == _apple.getx() && variable.getY() == _apple.gety())
 			{
 				_snake.eat();
-				printScore;
-				randPosition;
+				printScore(cout);
+				randPosition();
 			}
 			else
 			{
@@ -317,8 +267,8 @@ void Game::play()
 		}
 	} while (_gameOver != true);
 
-	printEndGame;
-	StartMenu;
+	printEndGame(cout);
+	StartMenu();
 }
 
 void Game::inputKey() {
@@ -379,7 +329,7 @@ void Game::printEndGame(std::ostream& sortie) const
 void Game::loadParameters(int& color, int& dimension, int& hauteur, int& largeur, int& speed)
 {
 	ifstream load;
-	load.open("save.txt");
+	load.open("setting.txt");
 	if (!load)
 	{
 		cout << "ERREUR : Impossible d'ouvrir le fichier" << endl;
@@ -438,7 +388,7 @@ Game::~Game()
 
 void Game::initialize()
 {
-	StartMenu;
+	StartMenu();
 }
 
 void Game::randPosition()
