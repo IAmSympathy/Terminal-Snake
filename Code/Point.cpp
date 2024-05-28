@@ -1,3 +1,10 @@
+/*====================================
+AUTEUR : Samy Larochelle
+PROJET : TP1 SNAKE (2024)
+NOM DU FICHIER : Point.cpp
+DATE : 26 février 2024
+DESCRIPTION : Définition des méthodes de Point
+====================================*/
 #include "Point.h"
 #include "mesFonctions.h"
 #include <windows.h>
@@ -32,15 +39,17 @@ int Point::getX() const
 {
 	return _x;
 
-}int Point::getY() const
+}
+int Point::getY() const
 {
 	return _y;
-
-}int Point::getColor() const
+}
+int Point::getColor() const
 {
 	return _color;
 
-}Point Point::getPoint() const
+}
+Point Point::getPoint() const
 {
 	return *this;
 }

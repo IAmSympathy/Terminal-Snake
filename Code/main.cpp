@@ -1,26 +1,22 @@
-#include "Point.h"
-#include "Rect.h"
-#include "Apple.h"
+/*====================================
+AUTEUR : Samy Larochelle et Loucas Viens
+PROJET : TP1 SNAKE (2024)
+NOM DU FICHIER : main.cpp
+DATE : 26 février 2024
+DESCRIPTION : Le corps du programme
+====================================*/
 #include <iostream>
 #include <fstream>
-#include "mesFonctions.h"
-<<<<<<< Updated upstream
-=======
-#include "Point.h"
-#include "Rect.h"
-#include "Apple.h"
-#include "Snake.h"
 #include "Game.h"
 
->>>>>>> Stashed changes
 
 using namespace std;
 
 int main() {
 
+	Game jeux;
 
-
-
+	jeux.StartMenu();
 
 	system("pause");
 

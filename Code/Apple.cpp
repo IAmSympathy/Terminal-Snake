@@ -1,3 +1,10 @@
+/*====================================
+AUTEUR : Samy Larochelle
+PROJET : TP1 SNAKE (2024)
+NOM DU FICHIER : Apple.cpp
+DATE : 6 mars 2024
+DESCRIPTION : Définition des méthodes de la pomme
+====================================*/
 #include "Apple.h"
 
 Apple::Apple()
@@ -23,4 +30,14 @@ void Apple::draw(std::ostream& sortie) const
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), _apple.getColor());
 	//Afficher le point avec la couleur spécifiée
 	std::cout << "\xFE";
+}
+
+int Apple::getx()
+{
+	return _apple.getX();
+}
+
+int Apple::gety()
+{
+	return _apple.getY();
 }

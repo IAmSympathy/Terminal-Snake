@@ -1,48 +1,57 @@
+/*====================================
+AUTEUR : Samy Larochelle et Loucas Viens
+PROJET : TP1 SNAKE (2024)
+NOM DU FICHIER : Game.h
+DATE : 2 mars 2024
+DESCRIPTION : Classe du jeu
+====================================*/
 #pragma once
+#include <iostream>
+#include <fstream>
+#include <conio.h>
+#include <string>
+#include "Snake.h"
+#include "Apple.h"
+#include "Rect.h"
 
 class Game
 {
 private:
 	bool _gameOver;		//si on perd
 
-	int _direction,		//la direction choisie
+	int _dir,			//la direction choisie
 		_cptLive,		//le compteur de vie
 		_score;			//le score de la game
 
 	Snake _snake;		//le snake
 	Apple _apple;		//la pomme
 	Rect _plateau;		//rectangle du terrain de jeu
-	int _width = 40;	//Largeur - dimension du terrain de jeu
-	int _height = 20;	//Hauteur - dimension du terrain de jeu
+	int _width;			//Largeur - dimension du terrain de jeu
+	int _height;		//Hauteur - dimension du terrain de jeu
 
-
-	enum direction { STOP, LEFT, RIGHT, UP, DOWN, NONE };
+	enum _dir { STOP, LEFT, RIGHT, UP, DOWN, NONE };
 
 public:
-	Game();											//initialise les types primitifs à 0
-	~Game();										//initialise les types primitifs à 0
+	Game();											//initialise les types primitifs a 0
+	~Game();										//initialise les types primitifs a 0
 	void initialize();								//initalise le jeu
+	void randPosition();							//creer la pomme et genere une nouvelle position aleatoire dans le terrain
 
-	Point randPosition()const;						//génère une nouvelle position aléatoire dans le terrain
-	void createApple();								//génère une nouvelle pomme TQ position est dans le snake
+	void StartMenu();								//Affiche le menu au depart du jeu
+	void parametersMenu(int& color, int& dimension, int& hauteur, int& largeur, int& speed);	//Affiche le menu des parametres du jeu
 
-	void StartMenu();								//Affiche le menu de départ du jeu
-	void parametersMenu(int& color, int& dimension, int& hauteur, int& largeur, int& speed);
-													//Affiche le menu des paramètres du jeu
 	void play();									//la main loop du jeu
-	void inputKey();								//la saisie des touches pour le déplacement du snake
-	bool canMove(const Point& p) const;				//retourne vrai si la tête du snake peut bouger dans le jeu
-	int getScore(int score) const;							//retourne le score (seule info qui pourrait être intéressante 
-													//de l’extérieur) et aucun setteur pour cet objet.
-	void drawScreen();								//Affiche le terrain où le snake se promène
+	void inputKey();								//la saisie des touches pour le deplacement du snake
+	int getScore(int score) const;					//retourne le score (seule info qui pourrait tres interessante de lextrieur) et aucun setteur pour cet objet.
+													
+	void drawScreen();								//Affiche le terrain o  le snake se prom ne
 
-	void printScore(std::ostream& sortie) const;	//affiche le nombre de pommes mangées
+	void printScore(std::ostream& sortie);			//affiche le nombre de pommes mangees
 	void printLive(std::ostream& sortie) const;		//affiche le compteur de vie
-	void printEndGame(std::ostream& sortie) const;	//affiche game over et le nombre de pommes mangées
-													//permet de charger les données provenant du fichier texte
-	void loadParameters(int& color, int& dimension, int& hauteur, int& largeur, int& speed);
-													//permet de sauvegarder les données de paramètre dans le fichier texte
-	void saveParameters(int color, int dimension, int hauteur, int largeur, int speed) const;
+	void printEndGame(std::ostream& sortie) const;	//affiche game over et le nombre de pommes mang es
+													
+	void loadParameters();							//permet de charger les donnees provenant du fichier texte
+													
+	void saveParameters(int color, int dimension, int hauteur, int largeur, int speed) const; //permet de sauvegarder les donnees de parametre dans le fichier texte
 
-	direction _dir;
 };

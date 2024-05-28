@@ -30,6 +30,9 @@
     <ClInclude Include="Code\Apple.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Code\Game.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\main.cpp">
@@ -50,9 +53,12 @@
     <ClCompile Include="Code\Apple.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Code\Game.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\Downloads\image1.txt">
+    <Text Include="setting.txt">
       <Filter>Fichiers de ressources</Filter>
     </Text>
   </ItemGroup>
