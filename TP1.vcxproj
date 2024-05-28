@@ -36,7 +36,7 @@
     <ClCompile Include="Code\Snake.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\Downloads\image1.txt" />
+    <Text Include="setting.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

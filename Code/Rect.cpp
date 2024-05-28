@@ -1,3 +1,10 @@
+/*====================================
+AUTEUR : Samy Larochelle
+PROJET : TP1 SNAKE (2024)
+NOM DU FICHIER : Rect.cpp
+DATE : 26 février 2024
+DESCRIPTION : Définition des fonctions de rectangle
+====================================*/
 #include "Rect.h"
 #include "Game.h"
 #include <iostream>
@@ -22,12 +29,12 @@ Rect::~Rect()
 	_h = 0;
 }
 
-int Rect::getH()
+int Rect::getH() const
 {
 	return _h;
 }
 
-int Rect::getW()
+int Rect::getW() const
 {
 	return _w;
 }
@@ -120,18 +127,18 @@ void Rect::draw(std::ostream&) const
 
 
 
-	for (int j = 0; j < _h; j++)
+	for (int j = 0; j < _h + 1; j++)
 	{
-		for (int i = 0; i < _w; i++)
+		for (int i = 0; i < _w + 1; i++)
 		{
 			goToXY(_coord.getX() + i, _coord.getY() + j);
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), _coord.getColor());
 
-				if (j == 0 || j == _h - 1)
+				if (j == 0 || j == _h)
 				{
 					std::cout << "\xFE";
 				}
-				else if (i == 0 || i == _w - 1)
+				else if (i == 0 || i == _w)
 				{
 					std::cout << "\xFE";
 				}

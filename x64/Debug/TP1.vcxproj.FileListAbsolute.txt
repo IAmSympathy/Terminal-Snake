@@ -1,1 +1,3 @@
 C:\Users\Loucas Viens\Documents\GitHub\TP1-ProgrammationObjet\x64\Debug\TP1.exe
+C:\Users\samyl\OneDrive\Bureau\TP1-ProgrammationObjet\x64\Debug\TP1.exe
+C:\Users\Loucas Viens\Desktop\Programmation orientée objet\TP1-ProgrammationObjet\x64\Debug\TP1.exe

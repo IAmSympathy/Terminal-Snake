@@ -1,6 +1,12 @@
+/*====================================
+AUTEUR : Samy Larochelle et Loucas Viens
+PROJET : TP1 SNAKE (2024)
+NOM DU FICHIER : mesFonctions.cpp
+DATE : 26 février 2024
+DESCRIPTION : Définition des fonctions
+====================================*/
 #include "mesFonctions.h"
 
-//fonction pour se positionner dans l'écran à x,y
 void goToXY(int xpos, int ypos) {
 	COORD scrn;
 	HANDLE hOuput = GetStdHandle(STD_OUTPUT_HANDLE);

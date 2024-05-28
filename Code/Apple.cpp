@@ -1,3 +1,10 @@
+/*====================================
+AUTEUR : Samy Larochelle
+PROJET : TP1 SNAKE (2024)
+NOM DU FICHIER : Apple.cpp
+DATE : 6 mars 2024
+DESCRIPTION : Définition des méthodes de la pomme
+====================================*/
 #include "Apple.h"
 
 Apple::Apple()

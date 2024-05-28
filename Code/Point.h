@@ -1,3 +1,10 @@
+/*====================================
+AUTEUR : Samy Larochelle 
+PROJET : TP1 SNAKE (2024)
+NOM DU FICHIER : Point.h
+DATE : 26 février 2024
+DESCRIPTION : Classe du Point
+====================================*/
 #pragma once
 
 #include <fstream>
@@ -11,7 +18,7 @@ public:
 	// constructeur
 	Point();			//Constructeur sans paramètre
 	Point(int x, int y, int color);	//Constructeur avec paramètres
-	Point(const Point& p);
+	Point(const Point& p); //Constructeur de copie
 
 
 	//destructeur
@@ -30,7 +37,7 @@ public:
 	void setColor(int color);
 	void setPoint(int x, int y, int color);
 
-	void draw(std::ostream& os) const;
-	void print(std::ostream& sortie) const;
-	void read(std::istream& input);
+	void draw(std::ostream& os) const; //Affiche un carré a la position du point
+	void print(std::ostream& sortie) const; //Affiche les coordonees dans la console
+	void read(std::istream& input); //lit un point dans le fichier
 };

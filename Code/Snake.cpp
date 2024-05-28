@@ -1,3 +1,10 @@
+/*====================================
+AUTEUR : Samy Larochelle
+PROJET : TP1 SNAKE (2024)
+NOM DU FICHIER : Snake.cpp
+DATE : 6 mars 2024
+DESCRIPTION : Définition des méthodes du serpent
+====================================*/
 #include "Snake.h"
 
 Snake::Snake()
@@ -21,7 +28,7 @@ Snake::~Snake()
 
 void Snake::initialize(int x, int y, int color, int size, int speed)
 {
-	_snake[0].setPoint(x,y,color);
+	_snake[0].setPoint(x, y, color);
 	_speed = speed;
 	_size = size;
 }
@@ -36,11 +43,6 @@ int Snake::getSpeed() const
 	return _speed;
 }
 
-const Point& Snake::getHeadPosition() const
-{
-	return 	_snake[0];
-}
-
 Point& Snake::getPosition(int ind)
 {
 	return 	_snake[ind];
@@ -48,7 +50,7 @@ Point& Snake::getPosition(int ind)
 
 Point& Snake::operator[](int ind)
 {
-	return 	_snake[ind]; 
+	return 	_snake[ind];
 }
 
 void Snake::setSize(int size)
@@ -61,20 +63,33 @@ void Snake::setSpeed(int speed)
 	_speed = speed;
 }
 
+void Snake::setColor(int color)
+{
+	_snake[0].setColor(color);
+}
+
 Point Snake::newPosition(int dir) const
 {
-	Point newPos(_snake[0].getX(), _snake[0].getY(), 7);
+	Point newPos;
 	switch (dir)
 	{
-	case1:
+	case 1:
 		newPos.setX((_snake[0].getX() - 1));
-	case2:
+		newPos.setY(_snake[0].getY());
+		break;
+	case 2:
 		newPos.setX((_snake[0].getX() + 1));
-	case3:
-		newPos.setY((_snake[0].getY() + 1));
-	case4:
+		newPos.setY(_snake[0].getY());
+		break;
+	case 3:
 		newPos.setY((_snake[0].getY() - 1));
-}
+		newPos.setX(_snake[0].getX());
+		break;
+	case 4:
+		newPos.setY((_snake[0].getY() + 1));
+		newPos.setX(_snake[0].getX());
+		break;
+	}
 	return newPos;
 }
 
@@ -91,25 +106,19 @@ bool Snake::ifCollision(const Point& pos) const
 
 void Snake::move(int dir)
 {
-	Point oldPos = _snake[0];
-	switch (dir)						 //Change le point de la tête du snake
+	Point oldPos[800];
+	int keepColor = _snake[0].getColor();
+	for (int i = 0; i < _size + 1; i++)
 	{
+		oldPos[i] = _snake[i];
+	}
+	_snake[0] = newPosition(dir);
 
-	case 1:
-		_snake[0].setX((_snake[0].getX() - 1)); 
-	case 2:
-		_snake[0].setX((_snake[0].getX() + 1));;
-	case 3:
-		_snake[0].setY((_snake[0].getY() + 1));
-	case 4:
-		_snake[0].setY((_snake[0].getY() - 1));
-	}
-	for (int j = 1; j < _size; j++)
+	for (int i = 1; i < _size + 1; i++)
 	{
-		_snake[j].setX(oldPos.getX());      //change les points du corps
-		_snake[j].setY(oldPos.getY());
-		oldPos = _snake[j];
+		_snake[i] = oldPos[i - 1];
 	}
+	_snake[0].setColor(keepColor);
 }
 
 void Snake::eat()
@@ -119,13 +128,18 @@ void Snake::eat()
 
 void Snake::draw(std::ostream& sortie)
 {
-	//Utiliser la fonction goToXY pour se positionner
-	for (int i = 0; i < _size; i++)
+	Point derPoint;
+	for (int i = 0; i < _size + 1; i++)
 	{
 		goToXY(_snake[i].getX(), _snake[i].getY());
 		//Changer la couleur du texte en console à partir de la couleur du point
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), _snake[i].getColor());
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), _snake[0].getColor());
 		//Afficher le point avec la couleur spécifiée
 		std::cout << "\xFE";
+		derPoint = _snake[i];
 	}
+	goToXY(derPoint.getX(), derPoint.getY());
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0);
+	std::cout << "\xFE";
 }
+

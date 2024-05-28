@@ -1,3 +1,10 @@
+/*====================================
+AUTEUR : Samy Larochelle et Loucas Viens
+PROJET : TP1 SNAKE (2024)
+NOM DU FICHIER : Game.cpp
+DATE : 2 mars 2024
+DESCRIPTION : Définition des méthodes du jeu
+====================================*/
 #include "Game.h"
 
 using namespace std;
@@ -5,15 +12,19 @@ using namespace std;
 void Game::StartMenu() {
 	int reponse = 0;
 	bool switch1 = true;
-	int couleur = 1;
-	int dimensionSnake = 6;
-	int dimensionPlateauH = 25;
-	int dimensionPlateauL = 40;
-	int vitesseSnake = 100;
+	loadParameters();
+	int couleur = _snake[0].getColor();
+	int dimensionSnake = _snake.getSize();
+	int dimensionPlateauH = _plateau.getH();
+	int dimensionPlateauL = _plateau.getW();
+	int vitesseSnake = _snake.getSpeed();
 	
 	do
 	{
 		system("CLS");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+		_dir = LEFT;
+		_gameOver = false;
 		cout << endl << "Bienvenue au Snake en CONSOLE!" << endl << endl;
 		cout << "1- Jouer au Snake" << endl;
 		cout << "2- Parametres du jeu" << endl;
@@ -59,7 +70,7 @@ void Game::parametersMenu(int& color, int& dimension, int& hauteur, int& largeur
 	do
 	{
 		system("CLS");
-		loadParameters(color, dimension, hauteur, largeur, speed);
+		loadParameters();
 		cout << endl << "Voici les parametres qui peuvent etre modifie dans le jeu Snake" << endl << endl;
 		cout << "1- Couleur du snake" << endl;
 		cout << "2- Dimensions du snake" << endl;
@@ -78,6 +89,18 @@ void Game::parametersMenu(int& color, int& dimension, int& hauteur, int& largeur
 				system("CLS");
 				cout << "Entrez la couleur du snake! Vous devez faire un choix entre 1 a 15! ";
 				cin >> color;
+
+				void viderBuffer();
+				{
+					cin.clear();
+					cin.seekg(0, ios::end);
+					if (!cin.fail()) {
+						cin.ignore(1000);
+					}
+					else {
+						cin.clear();
+					}
+				}
 
 				if (color <= 15 && color >= 1)
 				{
@@ -125,8 +148,6 @@ void Game::parametersMenu(int& color, int& dimension, int& hauteur, int& largeur
 			} while (verification2 == true);
 			break;
 		case 3:
-			do
-			{
 				do
 				{
 					system("CLS");
@@ -158,23 +179,38 @@ void Game::parametersMenu(int& color, int& dimension, int& hauteur, int& largeur
 						verification3 = true;
 					}
 				} while (verification3 == true);
-				cout << "Entrez la largeur. Celle-ci dois se trouver entre 40 et 60! ";
-				cin >> largeur;
-
-				
-
-				if (largeur <= 60 && largeur >= 40)
+				do
 				{
-					verification4 = false;
-				}
-				else
-				{
-					cout << "Entrez un nombre entre 40 et 60!";
-					cin.ignore();
-					cin.get();
-					verification4 = true;
-				}
-			} while (verification4 == true);
+					system("CLS");
+					cout << "Entrez la dimension du plateau de jeu que vous desirez!" << endl;
+					cout << "Entrez la hauteur. Celle-ci dois se trouver entre 10 et 25! " << endl;
+					cout << "Entrez la largeur. Celle-ci dois se trouver entre 40 et 60! ";
+					cin >> largeur;
+
+					void viderBuffer();
+					{
+						cin.clear();
+						cin.seekg(0, ios::end);
+						if (!cin.fail()) {
+							cin.ignore(1000);
+						}
+						else {
+							cin.clear();
+						}
+					}
+
+					if (largeur <= 60 && largeur >= 40)
+					{
+						verification4 = false;
+					}
+					else
+					{
+						cout << "Entrez un nombre entre 40 et 60!";
+						cin.ignore();
+						cin.get();
+						verification4 = true;
+					}
+				} while (verification4 == true);
 			break;
 		case 4:
 			do
@@ -228,34 +264,91 @@ void Game::parametersMenu(int& color, int& dimension, int& hauteur, int& largeur
 
 void Game::play()
 {
+	loadParameters();
+	_cptLive = 3;
+	_score = 0;
+	drawScreen();
+	int nbMurs = 0;
+	Point Murs[800];
+	int hauteurMur = 1;
+	randPosition();
+	for (int i = 0; i < _plateau.getW() + 1; i++)
+	{
+		Murs[i].setX(i);
+
+		if (i == _plateau.getW())
+		{
+			i++;
+			for (int j = 1; j < _plateau.getH() + 1; j++)
+			{
+
+				Murs[i].setY(j);
+				Murs[i].setX(0);
+				i++;
+				Murs[i].setX(_plateau.getW());
+				Murs[i].setY(j);
+				i++;
+			}
+		}
+		nbMurs = i - 1;
+	}
+	for (int i = 0; i < _plateau.getW() + 1; i++)
+	{
+		Murs[nbMurs + 1].setX(i);
+		Murs[nbMurs + 1].setY(_plateau.getH());
+		nbMurs++;
+	}
+	initialize();
+	printScore(cout);
+	printLive(cout);
 	do
 	{
-		drawScreen();
-		printScore(cout);
-		printLive(cout);
 		inputKey();
 		if (_dir != STOP)
 		{
-			Point variable = _snake.newPosition(_dir);
-			if (_snake.ifCollision(variable))
+			for (int i = 0; i < nbMurs + 1; i++)
 			{
-				_cptLive--;
-				printLive(cout);
-				if (_cptLive == 0)
+				if (_snake.newPosition(_dir).getX() == Murs[i].getX() && _snake.newPosition(_dir).getY() == Murs[i].getY())
 				{
-					_gameOver = true;
+					_cptLive--;
+					printLive(cout);
+					if (_cptLive == 0)
+					{
+						_gameOver = true;
+					}
+					else
+					{
+						drawScreen();
+						initialize();
+						printScore(cout);
+						printLive(cout);
+						randPosition();
+					}
 				}
-				else
+			}
+			for (int i = 0; i < _snake.getSize() + 1; i++)
+			{
+				if (_snake.newPosition(_dir).getX() == _snake[i].getX() && _snake.newPosition(_dir).getY() == _snake[i].getY())
 				{
+					_cptLive--;
+					if (_cptLive == 0)
+					{
+						_gameOver = true;
+					}
 					drawScreen();
+					printScore(cout);
+					initialize();
+					printLive(cout);
 					randPosition();
 				}
 			}
-			else if (variable.getX() == _apple.getx() && variable.getY() == _apple.gety())
+			if (_snake[0].getX() == _apple.getx() && _snake[0].getY() == _apple.gety())
 			{
 				_snake.eat();
-				printScore(cout);
+				_score++;
 				randPosition();
+				printScore(cout);
+				printLive(cout);
 			}
 			else
 			{
@@ -263,11 +356,14 @@ void Game::play()
 			}
 
 			_snake.draw(std::cout);
-			Sleep(100);
+			Sleep(_snake.getSpeed());
 		}
 	} while (_gameOver != true);
 
-	printEndGame(cout);
+	if (_dir != STOP)
+	{
+		printEndGame(cout);
+	}
 	StartMenu();
 }
 
@@ -284,15 +380,19 @@ void Game::inputKey() {
 			touche = _getch();	//dans le buffer on prend la 2e partie de la touche
 			switch (touche) {
 			case 75:		//code ascii des fl�ches
+				if (_dir != RIGHT)
 				_dir = LEFT;
 				break;
 			case 72:
+				if (_dir != DOWN)
 				_dir = UP;
 				break;
 			case 80:
+				if (_dir != UP)
 				_dir = DOWN;
 				break;
 			case 77:
+				if (_dir != LEFT)
 				_dir = RIGHT;
 			}
 		}
@@ -307,11 +407,13 @@ int Game::getScore(int score) const
 
 void Game::drawScreen()
 {
+
 	_plateau.draw(cout);
 }
 
-void Game::printScore(std::ostream& sortie) const
+void Game::printScore(std::ostream& sortie)
 {
+	goToXY(0, _plateau.getH() + 2);
 	cout << "Nombre de pomme ramassees : " << _score << endl;
 }
 
@@ -322,12 +424,16 @@ void Game::printLive(std::ostream& sortie) const
 
 void Game::printEndGame(std::ostream& sortie) const
 {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
-	cout << "Vous avez perdu BOZO";
+	system("CLS");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	cout << "Vous avez perdu !" << endl << endl;
+	system("PAUSE");
 }
 
-void Game::loadParameters(int& color, int& dimension, int& hauteur, int& largeur, int& speed)
+void Game::loadParameters()
 {
+	int color, dimension, hauteur, largeur, speed;
+
 	ifstream load;
 	load.open("setting.txt");
 	if (!load)
@@ -337,10 +443,15 @@ void Game::loadParameters(int& color, int& dimension, int& hauteur, int& largeur
 	else
 	{
 		load >> color;
+		_snake.setColor(color);
 		load >> dimension;
+		_snake.setSize(dimension);
 		load >> hauteur;
-		load >> largeur;
+		_plateau.setHeight(hauteur);
+		load >> largeur; 
+		_plateau.setWidth(largeur);
 		load >> speed;
+		_snake.setSpeed(speed);
 	}
 }
 
@@ -388,14 +499,38 @@ Game::~Game()
 
 void Game::initialize()
 {
-	StartMenu();
+	_dir = LEFT;
+	_snake.initialize(_plateau.getW() / 2, _plateau.getH() / 2, _snake[0].getColor(), _snake.getSize(), _snake.getSpeed());
+	for (int i = 0; i < _snake.getSize(); i++)
+	{
+		_snake[i+1].setX(_snake[i].getX() + 1);
+		_snake[i+1].setY(_snake[i].getY());
+	}
+
 }
 
 void Game::randPosition()
 {
 	int X;
 	int Y;
-	X = rand() % (_width-1) + 1;
-	Y = rand() % (_height-1) + 1;
+	do
+	{
+		X = (rand() % _plateau.getW() - 1) + 1;
+	} while (X == 0);
+	do
+	{
+		Y = (rand() % _plateau.getH() - 1) + 1;
+	} while (Y == 0);
 	_apple.setPosition(X, Y);
+	for (int i = 0; i < _snake.getSize()+1; i++)
+	{
+		if (_apple.getx() == _snake[i].getX() && _apple.gety() == _snake[i].getY())
+		{
+			randPosition();
+		}
+	}
+	goToXY(X, Y);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 4);
+	std::cout << "\xFE";
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 }
